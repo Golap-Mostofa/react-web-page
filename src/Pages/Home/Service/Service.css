@@ -5,8 +5,17 @@
     padding-right: 7px;
     padding-top: 5px;
     text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     
+}
+.price{
+    text-align: left;
+    color: cornflowerblue;
+    font-size: 20px;
+    margin-left: 10px;
 }
 .service img{
     border-radius: 5px;
+    margin-left: 3.5px;
+    margin-top: 0;
 }

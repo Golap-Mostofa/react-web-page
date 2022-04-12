@@ -5,13 +5,13 @@ import Banner2 from '../../../imges/experts/experts-5.jpg'
 import Banner3 from '../../../imges/experts/experts-6.jpg'
 import Banner4 from '../../../imges/experts/experts-7.jpg'
 const Banner = () => {
-    const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
-    return (
-        <Carousel activeIndex={index} onSelect={handleSelect}>
+  return (
+    <Carousel className='w-100' activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
         <img
           className="d-block w-100"
@@ -19,8 +19,8 @@ const Banner = () => {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3 className='text-primary'>First slide label</h3>
-          <p className='text-primary'>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h1 className='text-primary'>First slide label</h1>
+          <p className='text-white'>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -31,8 +31,8 @@ const Banner = () => {
         />
 
         <Carousel.Caption>
-          <h3 className='text-primary'>Second slide label</h3>
-          <p className='text-primary'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h1 className='text-primary'>Second slide label</h1>
+          <p className='text-white'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -43,14 +43,14 @@ const Banner = () => {
         />
 
         <Carousel.Caption>
-          <h3 className='text-primary'>Third slide label</h3>
-          <p className='text-primary'>
+          <h1 className='text-primary'>Third slide label</h1>
+          <p className='text-white'>
             Praesent commodo cursus magna, vel scelerisque nisl consectetur.
           </p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
-    );
+  );
 };
 
 export default Banner;

@@ -1,14 +1,19 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Service.css'
 const Service = ({service}) => {
-    const {name,img,description,price} = service;
+    const navigete = useNavigate()
+    const {id,name,img,description,price} = service;
+    const hendeloParams = id =>{
+       navigete(`service/${id}`)
+    }
     return (
-        <div className='service'>
-            <img className='img-fluid' src={img} alt="" />
-            <h2>{name}</h2>
-            <p>{price}</p>
-            <p><small>{description}</small></p>
-            <button className='btn btn-primary'>{name}</button>
+        <div className='service '>
+            <img className='w-100' src={img} alt="" />
+            <h2>{name.slice(0,12)}</h2>
+            <p className='price'>Price :{price}</p>
+            <p><small>{description.slice(0,120)}</small></p>
+            <button onClick={()=>hendeloParams(id)} className='btn btn-primary'>{name}</button>
            
         </div>
     );
