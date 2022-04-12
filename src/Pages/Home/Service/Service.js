@@ -10,10 +10,10 @@ const Service = ({service}) => {
     return (
         <div className='service '>
             <img className='w-100' src={img} alt="" />
-            <h2>{name.slice(0,12)}</h2>
+            <h2 className='product-title'>{name.slice(0,12)}</h2>
             <p className='price'>Price :{price}</p>
             <p><small>{description.slice(0,120)}</small></p>
-            <button onClick={()=>hendeloParams(id)} className='btn btn-primary'>{name}</button>
+            <button onClick={()=>hendeloParams(id)} className='shado btn btn-primary'>{name}</button>
            
         </div>
     );

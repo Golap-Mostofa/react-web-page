@@ -1,10 +1,11 @@
 import React from 'react';
+import './header.css'
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import {Link} from "react-router-dom"
 import logo from '../../../imges/experts/logo.png'
 const header = () => {
     return (
-        <>
+        <header className='header'>
             <Navbar collapseOnSelect expand="lg" sticky='top' bg="dark" variant="dark">
                 <Container>
                     <Navbar.Brand as={Link} to='/'>
@@ -33,7 +34,7 @@ const header = () => {
                 </Container>
             </Navbar>
 
-        </>
+        </header>
     );
 };
 
