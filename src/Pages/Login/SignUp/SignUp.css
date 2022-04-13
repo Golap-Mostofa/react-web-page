@@ -1,0 +1,27 @@
+.signUp-form{
+    margin: 0 auto;
+    width: 50%;
+
+}
+.signUp-form input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border-radius: 4px;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid lightgray;
+    
+}
+#submit{
+    background-color: rgb(255, 128, 82);
+}
+.from-container{
+    background-color: rgb(214, 214, 214);
+    padding: 100px;
+    border-radius: 10px;
+    
+}
