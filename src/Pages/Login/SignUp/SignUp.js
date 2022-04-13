@@ -11,7 +11,6 @@ const SignUp = () => {
         loading,
         error,
       ] = useCreateUserWithEmailAndPassword(auth);
-
     const navivate = useNavigate()
 
     const nevigetSignUp = () => {
@@ -25,7 +24,7 @@ const SignUp = () => {
         const name = event.target.name.value
         const email = event.target.email.value
         const password = event.target.password.value
-        console.log(name, email, password);
+        // console.log(name, email, password);
         createUserWithEmailAndPassword(email, password)
 
 

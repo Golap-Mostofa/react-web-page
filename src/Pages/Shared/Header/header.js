@@ -1,9 +1,18 @@
 import React from 'react';
 import './header.css'
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import logo from '../../../imges/experts/logo.png'
-const header = () => {
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
+import { signOut } from 'firebase/auth';
+const Header = () => {
+    const [user] = useAuthState(auth)
+
+    const hendelsignout = () => {
+        signOut(auth)
+    }
+
     return (
         <header className='header'>
             <Navbar collapseOnSelect expand="lg" sticky='top' bg="dark" variant="dark">
@@ -26,9 +35,15 @@ const header = () => {
                         </Nav>
                         <Nav>
                             <Nav.Link as={Link} to="/">about</Nav.Link>
-                            <Nav.Link as={Link} to="login">
-                               Login
-                            </Nav.Link>
+
+                            {
+                                user ?
+                                    <button className='btn btn-link text-white text-decoration-none' onClick={hendelsignout}>SignOut</button>
+                                    :
+                                    <Nav.Link as={Link} to="login">
+                                        Login
+                                    </Nav.Link>
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
@@ -38,4 +53,4 @@ const header = () => {
     );
 };
 
-export default header;
+export default Header;
