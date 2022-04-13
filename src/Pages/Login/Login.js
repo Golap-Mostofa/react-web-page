@@ -1,21 +1,33 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Login = () => {
     const navigete = useNavigate()
     const emailRef = useRef('')
     const passwordRef = useRef('')
-   
-    const nevigetRegestar = ()=>{
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+    if (user) {
+        navigete('/home')
+    }
+
+    const nevigetRegestar = () => {
         navigete('/signUp')
     }
 
-    const hendelSubmit = e =>{
+    const hendelSubmit = e => {
         e.preventDefault()
-        // const email = emailRef.current.value
-        // const password = passwordRef.current.value 
-        // console.log(email,password);
+        const email = emailRef.current.value
+        const password = passwordRef.current.value
+        signInWithEmailAndPassword(email, password)
+
 
 
     }
@@ -44,6 +56,7 @@ const Login = () => {
                     Submit
                 </Button>
             </Form>
+            <p>{error}</p>
             <p>New to Genius Car <Link to={'/signUp'} className='text-danger text-decoration-none' onClick={nevigetRegestar}>Pleash SignUp</Link></p>
         </div>
     );

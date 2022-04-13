@@ -1,10 +1,24 @@
 import React from 'react';
 import { Link, useNavigate, } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './SignUp.css'
+import auth from '../../../firebase.init';
 const SignUp = () => {
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
+
     const navivate = useNavigate()
+
     const nevigetSignUp = () => {
         navivate('/login')
+    }
+    if(user){
+        navivate('/home')
     }
     const hendelSignUp = event => {
         event.preventDefault()
@@ -12,6 +26,7 @@ const SignUp = () => {
         const email = event.target.email.value
         const password = event.target.password.value
         console.log(name, email, password);
+        createUserWithEmailAndPassword(email, password)
 
 
 
