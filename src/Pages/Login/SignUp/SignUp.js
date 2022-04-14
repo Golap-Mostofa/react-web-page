@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate, } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import './SignUp.css'
 import auth from '../../../firebase.init';
+import SocialLogin from '../SocialLogin/SocialLogin';
 const SignUp = () => {
-
+    const [agree,setAgree] = useState(false)
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
+      const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const navivate = useNavigate()
 
     const nevigetSignUp = () => {
@@ -24,8 +26,11 @@ const SignUp = () => {
         const name = event.target.name.value
         const email = event.target.email.value
         const password = event.target.password.value
-        // console.log(name, email, password);
-        createUserWithEmailAndPassword(email, password)
+        // const agree = event.target.terms.checked
+        if(agree){
+            createUserWithEmailAndPassword(email, password)
+        }
+        
 
 
 
@@ -36,15 +41,24 @@ const SignUp = () => {
 
             <form onSubmit={hendelSignUp} className='from-container'>
                 <h3 className='text-center text-dark'>SignUp</h3>
-                <input type="text" name="name" id="" placeholder='Your name' /><br />
-                <input type="email" name="email" id="" required placeholder='your email' /><br />
-                <input type="password" name="password" id="" required placeholder='password' /><br />
-                <input id='submit' type="submit" value="SignUp" />
-                <>
-                    <p className='text-center'>New to Genius Car <Link to={'/login'} className='text-danger text-decoration-none' onClick={nevigetSignUp}>Pleash SignUp</Link></p>
-                </>
-            </form>
+                <input type="text" name="name" id="" placeholder='Your name' />
+                <input type="email" name="email" id="" required placeholder='your email' />
+                <input type="password" name="password" id="" required placeholder='password' />
+                <input onClick={() => setAgree(!agree)} type="checkbox" name="terms" id="" />
+                <label className={`ps-2 ${agree ? '' : 'text-danger'}`} htmlFor="terms">accept terms of condition</label>
+               
 
+                      <input
+                      disabled={!agree}
+                      id='submit'
+                       type="submit"
+                        value="SignUp" />
+                <>
+                    <p className='text-center'>New to Genius Car <Link to={'/login'} className='text-primary text-decoration-none' onClick={nevigetSignUp}>Pleash SignUp</Link></p>
+                </>
+                <SocialLogin></SocialLogin>
+            </form>
+               
 
         </div>
     );

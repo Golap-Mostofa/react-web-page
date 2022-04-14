@@ -3,7 +3,7 @@
     width: 50%;
 
 }
-.signUp-form input{
+.signUp-form input:not([type=checkbox]){
     display: block;
     height: 50px;
     width: 100%;
@@ -17,11 +17,13 @@
     
 }
 #submit{
-    background-color: rgb(255, 128, 82);
+    background-color: #212529;
+    color: white;
 }
 .from-container{
     background-color: rgb(214, 214, 214);
     padding: 100px;
     border-radius: 10px;
+    
     
 }

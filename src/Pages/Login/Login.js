@@ -1,11 +1,13 @@
+import { async } from '@firebase/util';
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import SocialLogin from './SocialLogin/SocialLogin';
 
 const Login = () => {
+    let errorEle;
     const navigete = useNavigate()
     const emailRef = useRef('')
     const passwordRef = useRef('')
@@ -17,12 +19,27 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    
+    const [sendPasswordResetEmail,sending] = useSendPasswordResetEmail( auth );
+
+
     if (user) {
         navigete(from, { replace: true });
+    }
+    if ( error) {
+        
+        errorEle =  <p>Error: {error?.message}</p>
+            
+      
     }
 
     const nevigetRegestar = () => {
         navigete('/signUp')
+    }
+    const resetPassword = async() =>{
+        const email = emailRef.current.value
+        await sendPasswordResetEmail(email)
+        alert('sent email')
     }
 
     const hendelSubmit = e => {
@@ -30,8 +47,6 @@ const Login = () => {
         const email = emailRef.current.value
         const password = passwordRef.current.value
         signInWithEmailAndPassword(email, password)
-
-
 
     }
 
@@ -50,15 +65,14 @@ const Login = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control ref={passwordRef} type="password" placeholder="Password" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <Button variant="dark w-50" type="submit">
+               
+                <Button variant="dark w-50 mx-auto d-block" type="submit">
                     Login
                 </Button>
             </Form>
-            <p>{error}</p>
-            <p>New to Genius Car <Link to={'/signUp'} className='text-danger text-decoration-none' onClick={nevigetRegestar}>Pleash SignUp</Link></p>
+            <p>{errorEle}</p>
+            <p>New to Genius Car <Link to={'/signUp'} className='text-primary ' onClick={nevigetRegestar}>Pleash SignUp</Link></p>
+            <p>Forget Password? <Link to={'/signUp'} className='text-primary ' onClick={resetPassword}>Reset password</Link></p>
             <SocialLogin></SocialLogin>
         </div>
     );
