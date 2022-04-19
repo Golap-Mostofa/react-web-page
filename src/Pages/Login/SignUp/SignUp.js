@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import './SignUp.css'
 import auth from '../../../firebase.init';
@@ -18,18 +19,18 @@ const SignUp = () => {
     const nevigetSignUp = () => {
         navivate('/login')
     }
-    if(user){
-        navivate('/home')
-    }
-    const hendelSignUp = event => {
+    
+    const hendelSignUp =async event => {
         event.preventDefault()
         const name = event.target.name.value
         const email = event.target.email.value
         const password = event.target.password.value
         // const agree = event.target.terms.checked
-        if(agree){
-            createUserWithEmailAndPassword(email, password)
-        }
+       
+        await    createUserWithEmailAndPassword(email, password)
+        await updateProfile({ displayName:name});
+          toast('Updated profile');
+          navivate('/home')
         
 
 
@@ -57,9 +58,10 @@ const SignUp = () => {
                     <p className='text-center'>New to Genius Car <Link to={'/login'} className='text-primary text-decoration-none' onClick={nevigetSignUp}>Pleash SignUp</Link></p>
                 </>
                 <SocialLogin></SocialLogin>
+                <ToastContainer></ToastContainer>
             </form>
                
-
+            
         </div>
     );
 };
