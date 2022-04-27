@@ -1,6 +1,5 @@
 import React from 'react';
 import Google from '../../../imges/Google/google.png'
-import Facebook from '../../../imges/Google/facebook.webp'
 import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useNavigate } from 'react-router-dom';
@@ -20,7 +19,7 @@ const SocialLogin = () => {
     if ( loading1 || loading) {
         errorEle = <p>Loading...</p>;
     }
-    if( user1){
+    if(user || user1){
         navigate('/home')
     }
     
@@ -33,16 +32,13 @@ const SocialLogin = () => {
                 <div style={{ height: '1px' }} className='bg-dark w-50'></div>
             </div>
             {errorEle}
-            <div className='d-block mx-auto border'>
-                <button onClick={()=>signInWithGoogle()} className='btn btn-dark w-100 mb-2'>
+            <div className='  '>
+                <button onClick={()=>signInWithGoogle()} className='btn btn-dark w-50 d-block mx-auto my-2'>
                     <img style={{ width: '30px' }} src={Google} alt="" />
                     Google
                 </button>
-                <button className='btn btn-dark w-100 mb-2'>
-                    <img style={{ width: '25px' }} src={Facebook} alt="" />
-                    Facebook
-                </button>
-                <button onClick={()=>signInWithGithub()} className='btn btn-dark w-100 mb-2'>
+               
+                <button onClick={()=>signInWithGithub()} className='btn btn-dark w-50 d-block mx-auto my-2'>
                     <img style={{ width: '30px' }} src={Google} alt="" />
                     Google
                 </button>
