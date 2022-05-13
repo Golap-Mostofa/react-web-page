@@ -7,23 +7,23 @@ import { useNavigate } from 'react-router-dom';
 const SocialLogin = () => {
     const navigate = useNavigate()
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth)
-    ;
+        ;
     const [signInWithGithub, user1, loading1, error1] = useSignInWithGithub(auth);
     let errorEle;
 
-    if ( error1) {
-        
-        errorEle =  <p>Error: {error?.message}</p>
-            
-      
+    if (error1) {
+
+        errorEle = <p>Error: {error?.message}</p>
+
+
     }
-    if ( loading1 || loading) {
+    if (loading1 || loading) {
         errorEle = <p>Loading...</p>;
     }
-    if( user1){
+    if (user1) {
         navigate('/home')
     }
-    
+
 
     return (
         <div >
@@ -33,20 +33,23 @@ const SocialLogin = () => {
                 <div style={{ height: '1px' }} className='bg-dark w-50'></div>
             </div>
             {errorEle}
-            <div className='d-block mx-auto border'>
-                <button onClick={()=>signInWithGoogle()} className='btn btn-dark w-100 mb-2'>
-                    <img style={{ width: '30px' }} src={Google} alt="" />
-                    Google
-                </button>
-                <button className='btn btn-dark w-100 mb-2'>
-                    <img style={{ width: '25px' }} src={Facebook} alt="" />
-                    Facebook
-                </button>
-                <button onClick={()=>signInWithGithub()} className='btn btn-dark w-100 mb-2'>
-                    <img style={{ width: '30px' }} src={Google} alt="" />
-                    Google
-                </button>
+            <div className='d-flex justify-content-center'>
+                <div className='  '>
+                    <button onClick={() => signInWithGoogle()} className='btn btn-dark w-100 mb-2 d-block ml-50'>
+                        <img style={{ width: '30px' }} src={Google} alt="" />
+                        Google
+                    </button>
+                    <button className='btn btn-dark  w-100 mb-2 d-block'>
+                        <img style={{ width: '20px' }} src={Facebook} alt="" />
+                        Facebook
+                    </button>
+                    <button onClick={() => signInWithGithub()} className='btn btn-dark w-100 mb-2 d-block'>
+                        <img style={{ width: '30px' }} src={Google} alt="" />
+                        Google
+                    </button>
+                </div>
             </div>
+
         </div>
     );
 };
