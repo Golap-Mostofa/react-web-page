@@ -1,6 +1,6 @@
 import React from 'react';
 import Google from '../../../imges/Google/google.png'
-import Facebook from '../../../imges/Google/facebook.webp'
+
 import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useNavigate } from 'react-router-dom';
@@ -40,7 +40,7 @@ const SocialLogin = () => {
                         Google
                     </button>
                     <button className='btn btn-dark  w-100 mb-2 d-block'>
-                        <img style={{ width: '20px' }} src={Facebook} alt="" />
+                        <img style={{ width: '20px' }} src={Google} alt="" />
                         Facebook
                     </button>
                     <button onClick={() => signInWithGithub()} className='btn btn-dark w-100 mb-2 d-block'>

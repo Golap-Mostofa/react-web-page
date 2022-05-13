@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Service.css'
 const Service = ({ service }) => {
     const navigete = useNavigate()
-    const { id, name, img, description, price } = service;
+    const { _id, name, img, description, price } = service;
     const hendeloParams = id => {
         navigete(`service/${id}`)
     }
@@ -13,7 +13,7 @@ const Service = ({ service }) => {
             <h2 className='product-title'>{name.slice(0, 12)}</h2>
             <p className='price'>Price :{price}</p>
             <p><small>{description.slice(0, 120)}</small></p>
-            <button onClick={() => hendeloParams(id)} className='shado btn btn-primary'>{name}</button>
+            <button onClick={() => hendeloParams(_id)} className='shado btn btn-primary'>{name}</button>
         </div>
     );
 };

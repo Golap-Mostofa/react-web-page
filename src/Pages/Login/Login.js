@@ -1,4 +1,4 @@
-import { async } from '@firebase/util';
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import React, { useRef } from 'react';
@@ -58,7 +58,7 @@ const Login = () => {
 
     return (
         <div className='container w-50 mx-auto mt-5'>
-            <h1 className='text-dark text-center'>Pleash Login</h1>
+            <h1 className='text-dark text-center fw-bold'>Please Login</h1>
             <Form onSubmit={hendelSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
