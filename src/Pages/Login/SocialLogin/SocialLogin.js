@@ -38,14 +38,14 @@ const SocialLogin = () => {
                     <img style={{ width: '30px' }} src={Google} alt="" />
                     Google
                 </button>
-                <button className='btn btn-dark w-100 mb-2'>
+                {/* <button className='btn btn-dark w-100 mb-2'>
                     <img style={{ width: '25px' }} src={Facebook} alt="" />
                     Facebook
                 </button>
                 <button onClick={()=>signInWithGithub()} className='btn btn-dark w-100 mb-2'>
                     <img style={{ width: '30px' }} src={Google} alt="" />
                     Google
-                </button>
+                </button> */}
             </div>
         </div>
     );
