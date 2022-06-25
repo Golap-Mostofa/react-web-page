@@ -23,23 +23,10 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-<<<<<<< HEAD
                             {/* <Nav.Link href="/">Services</Nav.Link>
                             <Nav.Link href="/">Home</Nav.Link>
                             <Nav.Link href="/">expatrs</Nav.Link> */}
                             {/* home#Services */}
-=======
-                            <Nav.Link href="home#Services">Services</Nav.Link>
-                            <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="home#expatrs">expatrs</Nav.Link>
-                            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                            </NavDropdown>
->>>>>>> 3c7d764ad2470c788beffc4f92e89e823134fc7a
                         </Nav>
                         <Nav>
                             <Nav.Link href="/">Services</Nav.Link>

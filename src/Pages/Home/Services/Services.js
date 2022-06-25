@@ -7,11 +7,7 @@ const Services = () => {
     const [services, setServices] = useState([])
 
     useEffect(() => {
-<<<<<<< HEAD
         fetch('http://localhost:5000/product')
-=======
-        fetch('http://localhost:5000/service')
->>>>>>> 3c7d764ad2470c788beffc4f92e89e823134fc7a
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])

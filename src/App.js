@@ -11,27 +11,17 @@ import NotFound from './Pages/NotFound/NotFound';
 import RequireAuth from './Pages/RequireAuth/RequireAuth';
 import ServiceDetail from './Pages/ServiceDetail/ServiceDetail';
 import Footer from './Pages/Shared/Footer/Footer';
-import Header from '../src/Pages/Shared/Header/Header'
+import Header from '../src/Pages/Shared/Header/header'
 function App() {
   return (
     <div>
       <Header></Header>
-<<<<<<< HEAD
       <Routes> 
         <Route path='/' element={<Home></Home> }></Route>
         <Route path='/home' element={
      
             <Home></Home>
      
-=======
-      <Routes>
-        <Route path='/' element={
-          <Home></Home>
-        }></Route>
-        <Route path='/home' element={
-           <Home></Home>
-         
->>>>>>> 3c7d764ad2470c788beffc4f92e89e823134fc7a
         }></Route>
         <Route path='service/:serviceId' element={<ServiceDetail></ServiceDetail>}></Route>
         <Route path='/about' element={<About></About>}></Route>

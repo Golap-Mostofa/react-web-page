@@ -5,20 +5,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loadi from './Loadi/Loadi';
 
-<<<<<<< HEAD
-const RequireAuth = ({ children }) => {
-  const [user] = useAuthState(auth);
-  let location = useLocation();
-  if (user) {
-
-    <Loadi></Loadi>
-  }
-  if (!user) {
-
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  }
-  return children   
-=======
 const RequireAuth = ({children}) => {
   const navigate = useNavigate()
     const [user,Loading] = useAuthState(auth);
@@ -51,7 +37,6 @@ const RequireAuth = ({children}) => {
     }
 
     return children
->>>>>>> 3c7d764ad2470c788beffc4f92e89e823134fc7a
 };
 
 export default RequireAuth;

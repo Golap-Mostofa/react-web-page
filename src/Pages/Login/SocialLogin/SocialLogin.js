@@ -33,7 +33,6 @@ const SocialLogin = () => {
                 <div style={{ height: '1px' }} className='bg-dark w-50'></div>
             </div>
             {errorEle}
-<<<<<<< HEAD
             <div className='d-block mx-auto border'>
                 <button onClick={()=>signInWithGoogle()} className='btn btn-dark w-100 mb-2'>
                     <img style={{ width: '30px' }} src={Google} alt="" />
@@ -47,23 +46,6 @@ const SocialLogin = () => {
                     <img style={{ width: '30px' }} src={Google} alt="" />
                     Google
                 </button> */}
-=======
-            <div className='d-flex justify-content-center'>
-                <div className='  '>
-                    <button onClick={() => signInWithGoogle()} className='btn btn-dark w-100 mb-2 d-block ml-50'>
-                        <img style={{ width: '30px' }} src={Google} alt="" />
-                        Google
-                    </button>
-                    <button className='btn btn-dark  w-100 mb-2 d-block'>
-                        <img style={{ width: '20px' }} src={Google} alt="" />
-                        Facebook
-                    </button>
-                    <button onClick={() => signInWithGithub()} className='btn btn-dark w-100 mb-2 d-block'>
-                        <img style={{ width: '30px' }} src={Google} alt="" />
-                        Google
-                    </button>
-                </div>
->>>>>>> 3c7d764ad2470c788beffc4f92e89e823134fc7a
             </div>
 
         </div>
