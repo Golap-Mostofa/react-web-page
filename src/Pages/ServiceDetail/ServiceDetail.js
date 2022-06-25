@@ -20,7 +20,7 @@ const ServiceDetail = () => {
             <div>
 
                 <Link to={'/checkout'}>
-                    <button className='btn btn-primary'>proceed check</button>
+                    <button className='btn btn-primary '>Check Out</button>
                 </Link>
             </div>
         </div>

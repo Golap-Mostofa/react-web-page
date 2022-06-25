@@ -20,3 +20,33 @@ code {
   border-radius: 20px;
   
 }
+/* .button{
+  margin-left: 100px;
+} */
+.margin{
+  margin-top: 70px;
+}
+.bg{
+  height: 100vh;
+  background-color: #F7ECDE;
+}
+.bg1{
+
+  background-color: #F7ECDE;
+}
+.botom{
+  
+}
+
+.blur{
+  position: absolute;
+  width: 22rem;
+  height: 14rem;
+  border-radius: 50%;
+  background:  #edd0ff;
+  filter: blur(212px);
+  z-index: -9;
+  top: -18%;
+  left: 56%;
+  filter: blur(72px);
+}

@@ -14,7 +14,7 @@ import Footer from './Pages/Shared/Footer/Footer';
 import Header from '../src/Pages/Shared/Header/header'
 function App() {
   return (
-    <div>
+    <div className='bg'>
       <Header></Header>
       <Routes> 
         <Route path='/' element={<Home></Home> }></Route>
@@ -32,9 +32,9 @@ function App() {
         </RequireAuth>}>
         </Route>
         <Route path='/addservice' element={
-          <RequireAuth>
+
             <AddServices></AddServices>
-          </RequireAuth>
+  
         }>
         </Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>

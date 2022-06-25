@@ -1,17 +1,16 @@
 import React from 'react';
 import { useAuthState, useSendEmailVerification } from 'react-firebase-hooks/auth';
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loadi from './Loadi/Loadi';
 
 const RequireAuth = ({children}) => {
-  const navigate = useNavigate()
     const [user,Loading] = useAuthState(auth);
+    const location = useLocation();
     const [sendEmailVerification, sending, error] = useSendEmailVerification(
       auth
     );
-    let location = useLocation();
     if(Loading){
      <Loadi></Loadi>
     }
