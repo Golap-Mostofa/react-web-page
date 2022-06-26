@@ -29,10 +29,14 @@ const Header = () => {
                             {/* home#Services */}
                         </Nav>
                         <Nav>
-                            <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="/addservice">Add Service</Nav.Link>
-                            <Nav.Link href="/">expatrs</Nav.Link>
-                            <Nav.Link as={Link} to="/">about</Nav.Link>
+                           
+                                    <Nav.Link href="/">Home</Nav.Link>
+                                    <Nav.Link href="/addservice">Add Service</Nav.Link>
+
+                                    <Nav.Link href="/manage">Manage</Nav.Link>
+                                    <Nav.Link href="/">Expart</Nav.Link>
+                              
+                            {/* <Nav.Link as={Link} to="/">about</Nav.Link> */}
 
                             {
                                 user ?

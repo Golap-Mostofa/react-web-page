@@ -1,13 +1,14 @@
 import React from 'react';
-// import { useForm } from 'react-hook-form';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from "react-hook-form";
 import added from '../../imges/banner/added.png'
 const AddServices = () => {
     const { register, handleSubmit } = useForm();
 
     const onSubmit = data => {
-        console.log(data);
-        const url = `http://localhost:5000/addservice`;
+        // console.log(data);
+        const url = `http://localhost:5000/product`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -18,6 +19,7 @@ const AddServices = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result);
+                toast(` product add success`)
             })
     };
 
@@ -39,6 +41,7 @@ const AddServices = () => {
                 </form>
             </div>
             <img src={added} alt="" />
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

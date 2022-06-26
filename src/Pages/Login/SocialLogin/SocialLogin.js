@@ -4,6 +4,7 @@ import Google from '../../../imges/Google/google.png'
 import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useNavigate } from 'react-router-dom';
+import Loadi from '../../RequireAuth/Loadi/Loadi';
 const SocialLogin = () => {
     const navigate = useNavigate()
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth)
@@ -13,14 +14,14 @@ const SocialLogin = () => {
 
     if (error1) {
 
-        errorEle = <p>Error: {error?.message}</p>
+        errorEle = <p className='text-danger'>Error: {error?.message}</p>
 
 
     }
     if (loading1 || loading) {
-        errorEle = <p>Loading...</p>;
+        <Loadi></Loadi>
     }
-    if (user1) {
+    if (user1 || user) {
         navigate('/home')
     }
 
@@ -33,19 +34,16 @@ const SocialLogin = () => {
                 <div style={{ height: '1px' }} className='bg-dark w-50'></div>
             </div>
             {errorEle}
-            <div className='d-block mx-auto border'>
-                <button onClick={()=>signInWithGoogle()} className='btn btn-dark w-100 mb-2'>
+            <div className='d-flex justify-content-center align-items-center flex-column'>
+                <button onClick={()=>signInWithGoogle()} className='mb-2 btn btn-dark w-50'>
                     <img style={{ width: '30px' }} src={Google} alt="" />
                     Google
                 </button>
-                {/* <button className='btn btn-dark w-100 mb-2'>
-                    <img style={{ width: '25px' }} src={Facebook} alt="" />
-                    Facebook
-                </button>
-                <button onClick={()=>signInWithGithub()} className='btn btn-dark w-100 mb-2'>
+               
+                <button onClick={()=>signInWithGithub()} className='mb-2 btn btn-dark w-50'>
                     <img style={{ width: '30px' }} src={Google} alt="" />
                     Google
-                </button> */}
+                </button>
             </div>
 
         </div>

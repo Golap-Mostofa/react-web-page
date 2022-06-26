@@ -12,6 +12,7 @@ import RequireAuth from './Pages/RequireAuth/RequireAuth';
 import ServiceDetail from './Pages/ServiceDetail/ServiceDetail';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from '../src/Pages/Shared/Header/header'
+import Manage from './Pages/Manage/Manage';
 function App() {
   return (
     <div className='bg'>
@@ -32,9 +33,15 @@ function App() {
         </RequireAuth>}>
         </Route>
         <Route path='/addservice' element={
-
+         
             <AddServices></AddServices>
-  
+      
+        }>
+        </Route>
+        <Route path='/manage' element={
+    
+            <Manage></Manage>
+          
         }>
         </Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
