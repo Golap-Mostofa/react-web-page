@@ -7,7 +7,7 @@ const Manage = () => {
     const Hdelete = id =>{
         const proseade = window.confirm('Are You Sure?')
         if(proseade){
-            const url = `http://localhost:5000/product/${id}`
+            const url = `https://infinite-waters-38341.herokuapp.com/product/${id}`
             fetch(url, {
                 method: 'DELETE'
             })

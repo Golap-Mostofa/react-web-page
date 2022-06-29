@@ -8,12 +8,12 @@ const Service = ({ service }) => {
         navigete(`service/${id}`)
     }
     return (
-        <div className='service '>
+        <div className='service text-center'>
             <img className='w-100' src={img} alt="" />
             <h2 className='product-title'>{name.slice(0, 12)}</h2>
             <p className='price'>Price :{price}</p>
-            <p className='text-gray'><small>{description.slice(0, 120)}</small></p>
-            <button onClick={() => hendeloParams(_id)} className='shado btn btn-primary'>{name}</button>
+            <p className='text-black'><small>{description.slice(0, 120)}</small></p>
+            <button onClick={() => hendeloParams(_id)} className=' btn btn-primary'>{name}</button>
         </div>
     );
 };

@@ -4,7 +4,7 @@ const useServic=() =>{
     const [services, setServices] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/product')
+        fetch('https://infinite-waters-38341.herokuapp.com/product')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
