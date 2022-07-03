@@ -5,7 +5,10 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './ServiceDitel.css'
+import auth from '../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
 const ServiceDetail = () => {
+    const [user] = useAuthState(auth)
     const { serviceId } = useParams()
     const [service, setService] = useState({})
 
@@ -16,27 +19,12 @@ const ServiceDetail = () => {
             .then(data => setService(data))
     }, [])
     const booked = () => {
-        toast('booked successfully')
+        // if(user){
+        //     toast('booked successfully')
+        // }
     }
     return (
         <div className=''>
-            {/* <h2 className='text-primary text-center'><span className='text-danger  font-weight-bold'>BOOKED </span>{service.name}</h2>
-            <div >
-                <div class="flex justyfy ">
-                    <img src={service.img} class="w-15 h-15" alt="..." />
-                    <div class="">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">title and make up the bulk of the card's content.</p>
-                        <Link to={'/checkout'}>
-                            <button onClick={booked} className='btn btn-primary '>Check Out</button>
-                        </Link>
-                    </div>
-                </div>
-
-
-            </div>
-            <ToastContainer></ToastContainer> */}
-
             <h2 className='text-primary text-center'><span className='text-danger  font-weight-bold'>BOOKED </span>{service.name}</h2>
 
             <div className='d-flex justify-content-center align-items-center '>
